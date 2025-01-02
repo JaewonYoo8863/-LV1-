@@ -1,1 +1,24 @@
 # -LV1-
+
+## 문제 설명
+정수의 약수 합을 구하는 코드.  
+이 코드의 중요한 점은 약수를 구하려는 수의 **절반까지만 반복문**을 돌려도 된다는 점이다.  
+마지막에 자기 자신만 더해주면 된다.
+
+---
+
+## 코드
+
+```java
+class Solution {
+    public int solution(int n) {
+        int answer = 0;
+
+        for (int i = 1; i <= n / 2; i++) { // 절반까지만 반복
+            if (n % i == 0)
+                answer += i;
+        }
+
+        return answer + n; // 자기 자신 추가
+    }
+}
