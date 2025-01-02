@@ -1,0 +1,42 @@
+# Lv1
+
+## 문제 설명
+주어진 정수 `num`이 **짝수**일 경우 `"Even"`, **홀수**일 경우 `"Odd"`를 반환하는 함수입니다.
+
+---
+
+## 문법 설명
+
+### 삼항 연산자
+```java
+answer = (num % 2 == 0) ? "Even" : "Odd";
+? 앞에 boolean 연산자가 있고 참 일 경우 : 기준으로 앞 부분 부정일 경우 뒷 부분이 실행된다.
+if else와는 큰 차이는 없지만 코드가 길어질 경우 가독성이 더 좋어짐
+
+## 코드 
+// 삼항 연산자를 이용
+class Solution1 {
+    public String solution(int num) {
+        String answer = "";
+          answer= num%2==0 ? "Even": "Odd";
+        return answer;
+        
+        
+    }
+}
+
+// if else문을 이용
+class Solution2 {
+    public String solution(int num) {
+        String answer = "";
+            if(num%2 ==0||num==0){
+               answer = "Even";
+               
+            } else {
+                answer = "Odd";
+            }
+                
+        return answer;
+    }
+}
+
