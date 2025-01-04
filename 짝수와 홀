@@ -29,6 +29,7 @@ class Solution1 {
 class Solution2 {
     public String solution(int num) {
         String answer = "";
+            //if문 조건식에 0체크가 필요하냐 -> 없어도 됨(테스트 해보셈)
             if(num%2 ==0||num==0){
                answer = "Even";
                
