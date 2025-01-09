@@ -1,0 +1,80 @@
+# Lv1
+## 문제 설명  
+함수 `solution`은 정수 `n`을 매개변수로 입력받아, `n`의 각 자릿수를 큰 것부터 작은 순으로 정렬한 새로운 정수를 반환함.  
+- 예를 들어, `n = 118372`라면 `873211`을 반환함.  
+
+---
+
+### 제한 조건  
+1. `n`은 `1` 이상 `8,000,000,000` 이하인 자연수임.  
+
+---
+
+## 1번 코드
+```java
+import java.util.*;
+
+class Solution {
+    public long solution(long n) {
+        // 숫자 n을 String으로 변환하고, 각 자릿수를 배열에 저장
+        String numStr = Long.toString(n);
+        char[] digits = numStr.toCharArray();
+        
+        // 선택정렬을 사용하여 자릿수 배열을 내림차순으로 정렬
+        for (int i = 0; i < digits.length - 1; i++) {
+            int maxIdx = i;
+            for (int j = i + 1; j < digits.length; j++) {
+                if (digits[j] > digits[maxIdx]) {
+                    maxIdx = j;
+                }
+            }
+            
+            char temp = digits[i];
+            digits[i] = digits[maxIdx];
+            digits[maxIdx] = temp;
+        }
+        
+        // 정렬된 배열을 문자열로 변환 후 Long 타입으로 변환
+        long answer = Long.parseLong(new String(digits));
+        
+        return answer;
+    }
+}
+
+## 2번 코드
+import java.util.*;
+
+class Solution {
+    public long solution(long n) {
+        String[] list = String.valueOf(n).split(""); // 숫자 n을 문자열로 변환 후 각 자릿수를 배열에 저장
+        Arrays.sort(list); // 배열을 오름차순으로 정렬
+
+        StringBuilder sb = new StringBuilder();
+        for (String digit : list) {
+            sb.append(digit); // 정렬된 배열을 문자열로 합침
+        }
+
+        return Long.parseLong(sb.reverse().toString()); // 문자열을 뒤집고 Long 타입으로 변환
+    }
+}
+
+코드 설명
+1번 코드:
+
+숫자 n을 문자열로 변환 후, 각 자릿수를 배열에 저장.
+선택 정렬을 사용하여 배열을 내림차순으로 정렬.
+정렬된 배열을 문자열로 변환한 뒤, Long 타입으로 변환하여 반환.
+
+2번 코드:
+
+숫자 n을 문자열로 변환 후, 각 자릿수를 배열에 저장.
+Arrays.sort로 배열을 오름차순 정렬.
+StringBuilder를 사용하여 배열을 문자열로 합친 뒤, reverse()로 뒤집고 Long 타입으로 변환하여 반환.
+
+## 주요문법
+Long.toString(n): 숫자 n을 문자열로 변환함.
+String.valueOf(n).split(""): 숫자 n을 문자열로 변환 후, 각 자릿수를 배열에 저장함.
+Arrays.sort(arr): 배열을 오름차순으로 정렬함.
+StringBuilder: 문자열을 효율적으로 추가, 수정, 뒤집을 수 있도록 돕는 클래스.
+.reverse(): StringBuilder 객체의 문자열을 뒤집음.
+Long.parseLong(str): 문자열을 Long 타입의 숫자로 변환함.
