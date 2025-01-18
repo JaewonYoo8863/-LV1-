@@ -1,0 +1,101 @@
+# Lv1  
+## 문제 설명  
+프로그래머스 모바일은 개인정보 보호를 위해 고지서를 보낼 때 고객들의 전화번호 일부를 가림.  
+전화번호가 문자열 `phone_number`로 주어졌을 때, 뒷 4자리를 제외한 나머지를 `*`로 가린 문자열 반환.  
+
+---
+
+### 제한 조건  
+- `phone_number`는 길이 4 이상, 20 이하의 문자열.  
+
+---
+
+## 코드 1  
+```java
+import java.util.*;
+class Solution {
+    public String solution(String phone_number) {
+        String answer = "";
+        String[] numbers = phone_number.split("");
+
+        for (int i = 0; i < numbers.length - 4; i++) {
+            numbers[i] = "*";
+        }
+
+        return answer = String.join("", numbers);
+    }
+}
+---
+
+## 코드 2
+```java
+class Solution { 
+  public String solution(String phone_number) {
+     char[] ch = phone_number.toCharArray();
+     for (int i = 0; i < ch.length - 4; i++) {
+         ch[i] = '*';
+     }
+     return String.valueOf(ch);
+  }
+}
+
+## 코드 설명 
+
+plaintext
+복사
+편집
+# Lv1  
+## 문제 설명  
+프로그래머스 모바일은 개인정보 보호를 위해 고지서를 보낼 때 고객들의 전화번호 일부를 가림.  
+전화번호가 문자열 `phone_number`로 주어졌을 때, 뒷 4자리를 제외한 나머지를 `*`로 가린 문자열 반환.  
+
+---
+
+### 제한 조건  
+- `phone_number`는 길이 4 이상, 20 이하의 문자열.  
+
+---
+
+## 코드 1  
+```java
+import java.util.*;
+class Solution {
+    public String solution(String phone_number) {
+        String answer = "";
+        String[] numbers = phone_number.split("");
+
+        for (int i = 0; i < numbers.length - 4; i++) {
+            numbers[i] = "*";
+        }
+
+        return answer = String.join("", numbers);
+    }
+}
+코드 2
+java
+복사
+편집
+class Solution { 
+  public String solution(String phone_number) {
+     char[] ch = phone_number.toCharArray();
+     for (int i = 0; i < ch.length - 4; i++) {
+         ch[i] = '*';
+     }
+     return String.valueOf(ch);
+  }
+}
+## 코드 설명
+코드 1
+전화번호 문자열을 split 메서드로 나누어 문자열 배열로 변환.
+배열에서 마지막 4자리를 제외한 나머지를 *로 치환.
+최종적으로 String.join 메서드로 배열을 다시 문자열로 변환하여 반환.
+## 코드 2
+전화번호 문자열을 toCharArray로 문자 배열로 변환.
+문자 배열에서 마지막 4자리를 제외한 나머지를 *로 치환.
+배열을 String.valueOf로 문자열로 변환하여 반환.
+
+주요 문법
+split(""): 문자열을 개별 문자로 나눠 배열로 변환.
+String.join("", 배열): 배열을 특정 구분자로 합쳐 문자열로 반환.
+toCharArray(): 문자열을 문자 배열로 변환.
+String.valueOf(배열): 문자 배열을 문자열로 변환.
