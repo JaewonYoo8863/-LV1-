@@ -1,0 +1,54 @@
+# Lv1  
+## 문제 설명  
+주어진 문자열 `s`의 **가운데 글자**를 반환하는 함수 작성.  
+- `s`의 길이가 **홀수**인 경우: 가운데 글자 1개 반환.  
+- `s`의 길이가 **짝수**인 경우: 가운데 글자 2개 반환.  
+
+---
+
+### 제한 사항  
+1. 문자열 `s`의 길이는 1 이상, 100 이하.  
+
+---
+
+## 코드  
+```java
+class Solution {
+    public String solution(String s) {
+        String answer = "";
+
+        // 문자열 길이가 홀수인 경우
+        if (s.length() % 2 == 1) {
+            answer = String.valueOf(s.charAt(s.length() / 2));
+        } 
+        // 문자열 길이가 짝수인 경우
+        else {
+            char ch1 = s.charAt(s.length() / 2 - 1); // 가운데 첫 글자
+            char ch2 = s.charAt(s.length() / 2);     // 가운데 두 번째 글자
+            answer = String.valueOf(ch1) + String.valueOf(ch2);
+        }
+        
+        return answer;
+    }
+}
+코드 설명
+문자열 길이의 홀수/짝수 여부 확인
+
+s.length() % 2 == 1: 홀수인 경우 s.length() / 2 번째 글자를 반환.
+짝수인 경우, (s.length() / 2 - 1)번째와 (s.length() / 2)번째 글자를 합쳐 반환.
+문자 추출
+
+charAt(index)로 특정 위치의 문자를 가져옴.
+String.valueOf(char)로 문자(char)를 문자열(String)로 변환.
+결과 반환
+
+홀수: 가운데 글자 1개.
+짝수: 가운데 글자 2개를 이어붙여 반환.
+
+## 주요 문법
+문자 추출 및 변환
+s.charAt(index);         // 특정 위치의 문자 추출
+String.valueOf(char);    // 문자(char)를 문자열(String)로 변환
+문자열 길이 및 나눗셈
+s.length();              // 문자열의 길이 확인
+s.length() / 2;          // 가운데 인덱스 계산
